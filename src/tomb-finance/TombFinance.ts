@@ -297,11 +297,11 @@ export class TombFinance {
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
     if (depositTokenName.startsWith('2OMB-FTM')) {
-      return rewardPerSecond.mul(30000).div(65000);
+      return rewardPerSecond.mul(30000).div(59500);
     } else if (depositTokenName.startsWith('2SHARE-FTM')) {
-      return rewardPerSecond.mul(24000).div(65000);
+      return rewardPerSecond.mul(24000).div(59500);
     } else {
-      return rewardPerSecond.mul(5500).div(65000)
+      return rewardPerSecond.mul(5500).div(59500)
     }
   }
 
