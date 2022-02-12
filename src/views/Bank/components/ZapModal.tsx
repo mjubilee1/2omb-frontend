@@ -40,6 +40,7 @@ const ZapModal: React.FC<ZapProps> = ({ onConfirm, onDismiss, tokenName = '', de
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   const tshareLPStats = useMemo(() => (tShareFtmLpStats ? tShareFtmLpStats : null), [tShareFtmLpStats]);
   const ftmAmountPerLP = tokenName.startsWith(TOMB_TICKER) ? tombLPStats?.ftmAmount : tshareLPStats?.ftmAmount;
+
   /**
    * Checks if a value is a valid number or not
    * @param n is the value to be evaluated for a number
@@ -48,6 +49,7 @@ const ZapModal: React.FC<ZapProps> = ({ onConfirm, onDismiss, tokenName = '', de
   function isNumeric(n: any) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   }
+
   const handleChangeAsset = (event: any) => {
     const value = event.target.value;
     setZappingToken(value);
@@ -79,14 +81,7 @@ const ZapModal: React.FC<ZapProps> = ({ onConfirm, onDismiss, tokenName = '', de
 
   return (
     <Modal>
-      <ModalTitle text={`Zap in ${tokenName}`} />
-      <Typography variant="h6" align="center">
-        Powered by{' '}
-        <a target="_blank" rel="noopener noreferrer" href="https://mlnl.finance">
-          mlnl.finance
-        </a>
-      </Typography>
-
+      <ModalTitle text={`Zap into ${tokenName}`} />
       <StyledActionSpacer />
       <InputLabel style={{ color: '#2c2560' }} id="label">
         Select asset to zap with
@@ -101,7 +96,7 @@ const ZapModal: React.FC<ZapProps> = ({ onConfirm, onDismiss, tokenName = '', de
         <StyledMenuItem value={FTM_TICKER}>FTM</StyledMenuItem>
         <StyledMenuItem value={TSHARE_TICKER}>2SHARES</StyledMenuItem>
         {/* Tomb as an input for zapping will be disabled due to issues occuring with the Gatekeeper system */}
-        {/* <StyledMenuItem value={TOMB_TICKER}>TOMB</StyledMenuItem> */}
+        <StyledMenuItem value={TOMB_TICKER}>2OMB</StyledMenuItem>
       </Select>
       <TokenInput
         onSelectMax={handleSelectMax}

@@ -102,37 +102,37 @@ const Home = () => {
   );
   const tBondTotalSupply = useMemo(() => (tBondStats ? String(tBondStats.totalSupply) : null), [tBondStats]);
 
-  // const tombLpZap = useZap({ depositTokenName: '2OMB-FTM-LP' });
-  // const tshareLpZap = useZap({ depositTokenName: '2SHARE-FTM-LP' });
+  const tombLpZap = useZap({ depositTokenName: '2OMB-FTM-LP' });
+  const tshareLpZap = useZap({ depositTokenName: '2SHARE-FTM-LP' });
 
   const StyledLink = styled.a`
     font-weight: 700;
     text-decoration: none;
   `;
 
-  // const [onPresentTombZap, onDissmissTombZap] = useModal(
-  //   <ZapModal
-  //     decimals={18}
-  //     onConfirm={(zappingToken, tokenName, amount) => {
-  //       if (Number(amount) <= 0 || isNaN(Number(amount))) return;
-  //       tombLpZap.onZap(zappingToken, tokenName, amount);
-  //       onDissmissTombZap();
-  //     }}
-  //     tokenName={'2OMB-FTM-LP'}
-  //   />,
-  // );
+  const [onPresentTombZap, onDissmissTombZap] = useModal(
+    <ZapModal
+      decimals={18}
+      onConfirm={(zappingToken, tokenName, amount) => {
+        if (Number(amount) <= 0 || isNaN(Number(amount))) return;
+        tombLpZap.onZap(zappingToken, tokenName, amount);
+        onDissmissTombZap();
+      }}
+      tokenName={'2OMB-FTM-LP'}
+    />,
+  );
 
-  // const [onPresentTshareZap, onDissmissTshareZap] = useModal(
-  //   <ZapModal
-  //     decimals={18}
-  //     onConfirm={(zappingToken, tokenName, amount) => {
-  //       if (Number(amount) <= 0 || isNaN(Number(amount))) return;
-  //       tshareLpZap.onZap(zappingToken, tokenName, amount);
-  //       onDissmissTshareZap();
-  //     }}
-  //     tokenName={'2SHARE-FTM-LP'}
-  //   />,
-  // );
+  const [onPresentTshareZap, onDissmissTshareZap] = useModal(
+    <ZapModal
+      decimals={18}
+      onConfirm={(zappingToken, tokenName, amount) => {
+        if (Number(amount) <= 0 || isNaN(Number(amount))) return;
+        tshareLpZap.onZap(zappingToken, tokenName, amount);
+        onDissmissTshareZap();
+      }}
+      tokenName={'2SHARE-FTM-LP'}
+    />,
+  );
 
   return (
     <Page>
@@ -339,9 +339,9 @@ const Home = () => {
                 </CardIcon>
               </Box>
               <Box mt={2}>
-                {/* <Button color="primary" disabled={true} onClick={onPresentTombZap} variant="contained">
-                  Zap In
-                </Button> */}
+                <Button color="primary" disabled={false} onClick={onPresentTombZap} variant="contained">
+                  Zap In!
+                </Button>
               </Box>
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
@@ -367,9 +367,9 @@ const Home = () => {
                 </CardIcon>
               </Box>
               <Box mt={2}>
-                {/* <Button color="primary" onClick={onPresentTshareZap} variant="contained">
-                  Zap In
-                </Button> */}
+                <Button color="primary" onClick={onPresentTshareZap} variant="contained">
+                  Zap In!
+                </Button>
               </Box>
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
