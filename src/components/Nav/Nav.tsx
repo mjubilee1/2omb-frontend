@@ -195,7 +195,7 @@ const Nav = () => {
                   <ListItemText>DOCS</ListItemText>
                 </ListItem>
                 <ListItem style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <AccountButton text="Connect" />
+                  <AccountButton text="Connect" onOpen={handleDrawerClose} />
                 </ListItem>
               </List>
             </Drawer>
