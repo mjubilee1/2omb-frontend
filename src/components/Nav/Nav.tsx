@@ -134,7 +134,7 @@ const Nav = () => {
 							<a target="_blank" href="https://3omb.finance/rebates" className={classes.link}>
 								3DAO
 							</a>
-							<a target="_blank" href="https://linktr.ee/2ombvaults" className={classes.link}>
+							<a target="_blank" href="https://www.devilfinance.io" className={classes.link}>
 								Vaults
 							</a>
 							<a target="_blank" href="https://snapshot.org/#/forgiving.forg.eth" className={classes.link}>

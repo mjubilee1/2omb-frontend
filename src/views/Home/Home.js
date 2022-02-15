@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import Page from '../../components/Page';
 import HomeImage from '../../assets/img/background.png';
 import CashImage from '../../assets/img/t_2OMB-02.png';
-import devilLogo from '../../assets/img/devil-logo.png'
 import Image from 'material-ui-image';
 import styled from 'styled-components';
 import { Alert } from '@material-ui/lab';
@@ -156,12 +155,7 @@ const Home = () => {
               <p>To maximize profits, stake your harvested 2SHAREs in the <StyledLink href="/boardroom" style={{ color: '#05147c' }} >Boardroom</StyledLink> to earn more 2OMB!</p>
             </Box>
           </Paper>
-        </Grid>
-				<Grid container item xs={12} sm={3} justify="center">
-					<a target="_blank" href="https://www.devilfinance.io" className='devilLogo' style={{ width: '81%', height: '100%', objectFit: "contain", paddingTop: '0px' }}>
-						<Image color="none"  src={devilLogo} />
-					</a>
-				</Grid>
+        </Grid>		
         <Grid container justify="center">
             <Box mt={3} style={{ width: '1000px' }}>
             <Alert variant="filled" severity="warning">
