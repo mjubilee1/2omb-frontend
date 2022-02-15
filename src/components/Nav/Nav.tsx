@@ -32,15 +32,17 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    color: '#e0e3bd',
-    'background-color': '#121212',
+    color: '#FFF',
+    'background-color': '#5f4aff22',
     // borderBottom: `1px solid ${theme.palette.divider}`,
-    padding: '10px',
+    'backdrop-filter': "blur(2px)",
+    padding: '0 10px',
     marginBottom: '3rem',
   },
   drawer: {
     width: 240,
     flexShrink: 0,
+    'background-color': '#5f4aff',
   },
   drawerPaper: {
     width: 240,
@@ -52,16 +54,13 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   toolbarTitle: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: '"IBM Plex Mono", monospace',
+    fontFamily: '"Gilroy"',
     fontSize: '30px',
     flexGrow: 1,
   },
   link: {
     textTransform: 'uppercase',
-    color: '#e0e3bd',
+    color: 'var(--white)',
     fontSize: '14px',
     margin: theme.spacing(1, 2),
     textDecoration: 'none',
@@ -71,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
   brandLink: {
     textDecoration: 'none',
-    color: '#e0e3bd',
+    color: 'var(--white)',
     '&:hover': {
       textDecoration: 'none',
     },
