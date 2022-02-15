@@ -7,7 +7,7 @@ import TokenSymbol from '../../components/TokenSymbol';
 const CemeteryCard = ({ bank }) => {
   return (
     <Grid item xs={12} md={4} lg={4}>
-		 <Card variant="outlined" style={{ border: '1px solid var(--white)' }}>
+      <Card variant="outlined" style={{ border: '1px solid var(--white)' }}>
         <CardContent>
           <Box style={{ position: 'relative' }}>
             <Box
@@ -33,9 +33,7 @@ const CemeteryCard = ({ bank }) => {
               {/* {bank.name} */}
               Deposit {bank.depositTokenName.toUpperCase()} Earn {bank.earnTokenName}
             </Typography>
-            <Typography color="textSecondary">
-              Multiplier: {bank.multiplier}
-            </Typography>
+            <Typography color="textSecondary">Multiplier: {bank.multiplier}</Typography>
           </Box>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>

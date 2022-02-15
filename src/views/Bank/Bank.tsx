@@ -47,16 +47,25 @@ const Bank: React.FC = () => {
         title={bank?.name}
       />
       <Box>
-      {bank.genesisFinished ? 
-          <Alert variant="filled" severity="warning" style={{ maxWidth: "600px", marginBottom: "50px", marginLeft: "auto", marginRight: "auto" }}>
+        {bank.genesisFinished ? (
+          <Alert
+            variant="filled"
+            severity="warning"
+            style={{ maxWidth: '600px', marginBottom: '50px', marginLeft: 'auto', marginRight: 'auto' }}
+          >
             Genesis Pools have ENDED. Please withdraw your funds.
-          </Alert> : <></>}
+          </Alert>
+        ) : (
+          <></>
+        )}
         <Grid container justify="center" spacing={3} style={{ marginBottom: '50px' }}>
           <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
             <Card className={classes.gridItem}>
               <CardContent style={{ textAlign: 'center' }}>
                 <Typography>APR</Typography>
-                <Typography>{bank.closedForStaking || bank.genesisFinished ? '0.00' : statsOnPool?.yearlyAPR}%</Typography>
+                <Typography>
+                  {bank.closedForStaking || bank.genesisFinished ? '0.00' : statsOnPool?.yearlyAPR}%
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -64,7 +73,9 @@ const Bank: React.FC = () => {
             <Card className={classes.gridItem}>
               <CardContent style={{ textAlign: 'center' }}>
                 <Typography>Daily APR</Typography>
-                <Typography>{bank.closedForStaking || bank.genesisFinished ? '0.00' : statsOnPool?.dailyAPR}%</Typography>
+                <Typography>
+                  {bank.closedForStaking || bank.genesisFinished ? '0.00' : statsOnPool?.dailyAPR}%
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -113,14 +124,14 @@ const LPTokenHelpText: React.FC<{ bank: BankEntity }> = ({ bank }) => {
 
   let pairName: string;
   let uniswapUrl: string;
-  if (bank.depositTokenName.startsWith("2OMB-FTM")) {
+  if (bank.depositTokenName.startsWith('2OMB-FTM')) {
     pairName = '2OMB-FTM pair';
     uniswapUrl = 'https://spookyswap.finance/add/FTM/0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae';
-  } else if (bank.depositTokenName.startsWith("2SHARE-FTM")) {
+  } else if (bank.depositTokenName.startsWith('2SHARE-FTM')) {
     pairName = '2SHARE-FTM pair';
     uniswapUrl = 'https://spookyswap.finance/add/FTM/' + tshareAddr;
   } else {
-    pairName = "2OMB-2SHARE pair";
+    pairName = '2OMB-2SHARE pair';
     uniswapUrl = 'https://spookyswap.finance/add/' + tombAddr + '/' + tshareAddr;
   }
   //waiting on jun LFG

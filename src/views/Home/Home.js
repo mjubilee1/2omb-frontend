@@ -64,7 +64,7 @@ const Home = () => {
     tShare = tShareProd;
   }
 
-  const buyTombAddress = 'https://spookyswap.finance/swap?outputCurrency=0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae'
+  const buyTombAddress = 'https://spookyswap.finance/swap?outputCurrency=0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae';
   const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=' + tShare.address;
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
@@ -141,7 +141,11 @@ const Home = () => {
         {/* Logo */}
         <Grid container item xs={12} sm={3} justify="center">
           {/* <Paper>xs=6 sm=3</Paper> */}
-		  <Image color="none" style={{ width: "235px", height: "235px", objectFit: "contain", paddingTop: '0px' }} src={CashImage} />
+          <Image
+            color="none"
+            style={{ width: '235px', height: '235px', objectFit: 'contain', paddingTop: '0px' }}
+            src={CashImage}
+          />
         </Grid>
         {/* Explanation text */}
         <Grid item xs={12} sm={6}>
@@ -150,18 +154,29 @@ const Home = () => {
               <h2>Welcome to 2omb Finance!</h2>
               <p>Pegged to the price of 1 FTM via seigniorage.</p>
               <p>
-							  <StyledLink href="/farms" style={{ color: '#05147c' }} >Stake</StyledLink> your 2OMB-FTM LP tokens to earn 2SHARE seigniorage rewards.
+                <StyledLink href="/farms" style={{ color: '#05147c' }}>
+                  Stake
+                </StyledLink>{' '}
+                your 2OMB-FTM LP tokens to earn 2SHARE seigniorage rewards.
               </p>
-              <p>To maximize profits, stake your harvested 2SHAREs in the <StyledLink href="/boardroom" style={{ color: '#05147c' }} >Boardroom</StyledLink> to earn more 2OMB!</p>
+              <p>
+                To maximize profits, stake your harvested 2SHAREs in the{' '}
+                <StyledLink href="/boardroom" style={{ color: '#05147c' }}>
+                  Boardroom
+                </StyledLink>{' '}
+                to earn more 2OMB!
+              </p>
             </Box>
           </Paper>
-        </Grid>		
+        </Grid>
         <Grid container justify="center">
-            <Box mt={3} style={{ width: '1000px' }}>
+          <Box mt={3} style={{ width: '1000px' }}>
             <Alert variant="filled" severity="warning">
-                Do your own research before investing. Investing is risky and may result in monetary loss. 2omb is beta software and may contain bugs. By using 2omb, you agree that the 2omb and 3omb team is not responsible for any financial losses from investing in 2omb or 3omb.
+              Do your own research before investing. Investing is risky and may result in monetary loss. 2omb is beta
+              software and may contain bugs. By using 2omb, you agree that the 2omb and 3omb team is not responsible for
+              any financial losses from investing in 2omb or 3omb.
             </Alert>
-            </Box>
+          </Box>
         </Grid>
 
         {/* TVL */}
@@ -201,13 +216,31 @@ const Home = () => {
               {/* <Button variant="contained" target="_blank" href={buyTShareAddress} className={classes.button}>
                 Buy 2SHARE
               </Button> */}
-              <Button color="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca" variant="contained" style={{ marginRight: '10px' }}>
+              <Button
+                color="contained"
+                target="_blank"
+                href="https://spookyswap.finance/swap?outputCurrency=0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca"
+                variant="contained"
+                style={{ marginRight: '10px' }}
+              >
                 Buy 2SHARES
               </Button>
-              <Button color="contained" target="_blank" href="https://dexscreener.com/fantom/0xbdc7dfb7b88183e87f003ca6b5a2f81202343478" variant="contained" style={{ marginRight: '10px' }}>
+              <Button
+                color="contained"
+                target="_blank"
+                href="https://dexscreener.com/fantom/0xbdc7dfb7b88183e87f003ca6b5a2f81202343478"
+                variant="contained"
+                style={{ marginRight: '10px' }}
+              >
                 2OMB Chart
               </Button>
-              <Button color="contained" target="_blank" href="https://dexscreener.com/fantom/0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca" variant="contained" style={{ marginRight: '10px' }}>
+              <Button
+                color="contained"
+                target="_blank"
+                href="https://dexscreener.com/fantom/0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca"
+                variant="contained"
+                style={{ marginRight: '10px' }}
+              >
                 2SHARES Chart
               </Button>
             </CardContent>
@@ -236,7 +269,7 @@ const Home = () => {
               <span style={{ fontSize: '12px' }}>
                 Market Cap: ${(tombCirculatingSupply * tombPriceInDollars).toFixed(2)} <br />
                 Circulating Supply: {tombCirculatingSupply} <br />
-                Total Supply: {tombTotalSupply-140000}
+                Total Supply: {tombTotalSupply - 140000}
               </span>
             </CardContent>
           </Card>
@@ -288,8 +321,8 @@ const Home = () => {
               </Box>
               <span style={{ fontSize: '12px' }}>
                 Market Cap: ${(tShareCirculatingSupply * tSharePriceInDollars).toFixed(2)} <br />
-                Circulating Supply: {tShareCirculatingSupply-balance} <br />
-                Total Supply: {tShareTotalSupply-balance}
+                Circulating Supply: {tShareCirculatingSupply - balance} <br />
+                Total Supply: {tShareTotalSupply - balance}
               </span>
             </CardContent>
           </Card>

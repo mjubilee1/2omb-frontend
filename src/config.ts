@@ -39,7 +39,7 @@ const configurations: { [env: string]: Configuration } = {
       TOMB: ['0x6c021ae822bea943b2e66552bde1d2696a53fbb7', 18], // ZOO: 0x09e145a1d53c0045f41aeef25d8ff982ae74dd56 0
       MIM: ['0x82f0b8b456c1a451378467398982d4834b6829c1', 18], // SHIBA: 0x9ba3e4f84a34df4e08c112e1a0ff148b81655615 9
       'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
-      '2OMB-FTM-LP': ['0xbdc7dfb7b88183e87f003ca6b5a2f81202343478', 18], // 
+      '2OMB-FTM-LP': ['0xbdc7dfb7b88183e87f003ca6b5a2f81202343478', 18], //
       '2SHARE-FTM-LP': ['0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52', 18],
       '2OMB-2SHARE-LP': ['0xd9B5f00d183df52D717046521152303129F088DD', 18],
     },
@@ -72,7 +72,7 @@ export const genesisDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombFtmRewardPool',
     depositTokenName: 'WFTM',
     earnTokenName: '2OMB',
-    multiplier: "100x",
+    multiplier: '100x',
     finished: false,
     sort: 1,
     closedForStaking: false,
@@ -84,7 +84,7 @@ export const genesisDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombWethGenesisRewardPool',
     depositTokenName: 'WETH',
     earnTokenName: '2OMB',
-    multiplier: "50x",
+    multiplier: '50x',
     finished: false,
     sort: 2,
     closedForStaking: false,
@@ -96,7 +96,7 @@ export const genesisDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombShibaGenesisRewardPool',
     depositTokenName: 'MIM',
     earnTokenName: '2OMB',
-    multiplier: "25x",
+    multiplier: '25x',
     finished: false,
     sort: 3,
     closedForStaking: false,
@@ -108,12 +108,12 @@ export const genesisDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombTombGenesisRewardPool',
     depositTokenName: 'TOMB',
     earnTokenName: '2OMB',
-    multiplier: "100x",
+    multiplier: '100x',
     finished: false,
     sort: 4,
     closedForStaking: false,
   },
-}
+};
 
 export const bankDefinitions: { [contractName: string]: BankInfo } = {
   /*
@@ -137,11 +137,11 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombFtmRewardPool',
     depositTokenName: 'WFTM',
     earnTokenName: '2OMB',
-    multiplier: "100x",
+    multiplier: '100x',
     finished: false,
     sort: 1,
     closedForStaking: false,
-    genesisFinished: true
+    genesisFinished: true,
   },
   TombWethRewardPool: {
     name: 'Stake wETH, earn 2OMB',
@@ -150,11 +150,11 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombWethGenesisRewardPool',
     depositTokenName: 'WETH',
     earnTokenName: '2OMB',
-    multiplier: "50x",
+    multiplier: '50x',
     finished: false,
     sort: 2,
     closedForStaking: false,
-    genesisFinished: true
+    genesisFinished: true,
   },
   TombShibaRewardPool: {
     name: 'Stake MIM, earn 2OMB',
@@ -163,11 +163,11 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombShibaGenesisRewardPool',
     depositTokenName: 'MIM',
     earnTokenName: '2OMB',
-    multiplier: "25x",
+    multiplier: '25x',
     finished: false,
     sort: 3,
     closedForStaking: false,
-    genesisFinished: true
+    genesisFinished: true,
   },
   TombTombRewardPool: {
     name: 'Stake TOMB, earn 2OMB',
@@ -176,11 +176,11 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombTombGenesisRewardPool',
     depositTokenName: 'TOMB',
     earnTokenName: '2OMB',
-    multiplier: "100x",
+    multiplier: '100x',
     finished: false,
     sort: 4,
     closedForStaking: false,
-    genesisFinished: true
+    genesisFinished: true,
   },
   TombFtmLPTombRewardPool: {
     name: 'Earn 2OMB by 2OMB-WFTM',
@@ -189,7 +189,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombFtmLpTombRewardPool',
     depositTokenName: '2OMB-FTM-LP',
     earnTokenName: '2OMB',
-    multiplier: "1000x",
+    multiplier: '1000x',
     finished: false,
     sort: 5,
     closedForStaking: false,
@@ -201,7 +201,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombFtmLpTombRewardPoolOld',
     depositTokenName: '2OMB-FTM-LP',
     earnTokenName: 'TOMB',
-    multiplier: "0",
+    multiplier: '0',
     finished: true,
     sort: 11,
     closedForStaking: true,
@@ -213,7 +213,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombFtmLPTShareRewardPool',
     depositTokenName: '2OMB-FTM-LP',
     earnTokenName: '2SHARE',
-    multiplier: "3000x",
+    multiplier: '3000x',
     finished: false,
     sort: 6,
     closedForStaking: false,
@@ -225,7 +225,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TshareFtmLPTShareRewardPool',
     depositTokenName: '2SHARE-FTM-LP',
     earnTokenName: '2SHARE',
-    multiplier: "2400x",
+    multiplier: '2400x',
     finished: false,
     sort: 7,
     closedForStaking: false,
@@ -237,7 +237,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombTshareLPTShareRewardPool',
     depositTokenName: '2OMB-2SHARE-LP',
     earnTokenName: '2SHARE',
-    multiplier: "550x",
+    multiplier: '550x',
     finished: false,
     sort: 8,
     closedForStaking: false,

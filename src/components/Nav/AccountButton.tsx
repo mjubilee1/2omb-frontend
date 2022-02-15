@@ -29,7 +29,7 @@ const AccountButton: React.FC<AccountButtonProps> = ({ text, onOpen }) => {
   const handleAccountModalOpen = () => {
     onPresentAccountModal();
     onOpen && onOpen();
-  }
+  };
 
   const buttonText = text ? text : 'Unlock';
 

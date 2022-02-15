@@ -16,60 +16,60 @@ import useTombStats from '../../../hooks/useTombStats';
 import { getDisplayBalance } from '../../../utils/formatBalance';
 
 const Harvest: React.FC = () => {
-	const tombStats = useTombStats();
-	const { onReward } = useHarvestFromMasonry();
-	const earnings = useEarningsOnMasonry();
-	const canClaimReward = useClaimRewardCheck();
+  const tombStats = useTombStats();
+  const { onReward } = useHarvestFromMasonry();
+  const earnings = useEarningsOnMasonry();
+  const canClaimReward = useClaimRewardCheck();
 
-	const tokenPriceInDollars = useMemo(
-		() => (tombStats ? Number(tombStats.priceInDollars).toFixed(2) : null),
-		[tombStats],
-	);
+  const tokenPriceInDollars = useMemo(
+    () => (tombStats ? Number(tombStats.priceInDollars).toFixed(2) : null),
+    [tombStats],
+  );
 
-	const earnedInDollars = (Number(tokenPriceInDollars) * Number(getDisplayBalance(earnings))).toFixed(2);
+  const earnedInDollars = (Number(tokenPriceInDollars) * Number(getDisplayBalance(earnings))).toFixed(2);
 
-	const { from, to } = useClaimRewardTimerMasonry();
+  const { from, to } = useClaimRewardTimerMasonry();
 
-	return (
-		<Box>
-			<Card>
-				<CardContent>
-					<StyledCardContentInner>
-						<StyledCardHeader>
-							<CardIcon>
-								<TokenSymbol symbol="2OMB" />
-							</CardIcon>
-							<Value value={getDisplayBalance(earnings)} />
-							<Label text={`≈ $${earnedInDollars}`} color="#fff" />
-							<Label text="2OMB Earned" color="#fff" />
-						</StyledCardHeader>
-						<StyledCardActions>
-							<Button
-								onClick={onReward}
-								color="primary"
-								variant="contained"
-								disabled={earnings.eq(0) || !canClaimReward}
-							>
-								Claim Reward
-							</Button>
-						</StyledCardActions>
-					</StyledCardContentInner>
-				</CardContent>
-			</Card>
-			<Box mt={2} style={{ color: '#FFF' }}>
-				{canClaimReward ? (
-					''
-				) : (
-					<Card>
-						<CardContent>
-							<Typography style={{ textAlign: 'center' }}>Claim possible in</Typography>
-							<ProgressCountdown hideBar={true} base={from} deadline={to} description="Claim available in" />
-						</CardContent>
-					</Card>
-				)}
-			</Box>
-		</Box>
-	);
+  return (
+    <Box>
+      <Card>
+        <CardContent>
+          <StyledCardContentInner>
+            <StyledCardHeader>
+              <CardIcon>
+                <TokenSymbol symbol="2OMB" />
+              </CardIcon>
+              <Value value={getDisplayBalance(earnings)} />
+              <Label text={`≈ $${earnedInDollars}`} color="#fff" />
+              <Label text="2OMB Earned" color="#fff" />
+            </StyledCardHeader>
+            <StyledCardActions>
+              <Button
+                onClick={onReward}
+                color="primary"
+                variant="contained"
+                disabled={earnings.eq(0) || !canClaimReward}
+              >
+                Claim Reward
+              </Button>
+            </StyledCardActions>
+          </StyledCardContentInner>
+        </CardContent>
+      </Card>
+      <Box mt={2} style={{ color: '#FFF' }}>
+        {canClaimReward ? (
+          ''
+        ) : (
+          <Card>
+            <CardContent>
+              <Typography style={{ textAlign: 'center' }}>Claim possible in</Typography>
+              <ProgressCountdown hideBar={true} base={from} deadline={to} description="Claim available in" />
+            </CardContent>
+          </Card>
+        )}
+      </Box>
+    </Box>
+  );
 };
 
 const StyledCardHeader = styled.div`

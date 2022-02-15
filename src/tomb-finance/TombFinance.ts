@@ -230,12 +230,12 @@ export class TombFinance {
   async getPoolAPRs(bank: Bank): Promise<PoolStats> {
     if (this.myAccount === undefined) return;
     const depositToken = bank.depositToken;
-    console.log("deposit token:", depositToken);
+    console.log('deposit token:', depositToken);
     const poolContract = this.contracts[bank.contract];
     const depositTokenPrice = await this.getDepositTokenPriceInDollars(bank.depositTokenName, depositToken);
-    console.log("deposit token price:", depositTokenPrice);
+    console.log('deposit token price:', depositTokenPrice);
     const stakeInPool = await depositToken.balanceOf(bank.address);
-    console.log("stake in pool:", stakeInPool);
+    console.log('stake in pool:', stakeInPool);
     const TVL = Number(depositTokenPrice) * Number(getDisplayBalance(stakeInPool, depositToken.decimal));
     const stat = bank.earnTokenName === '2OMB' ? await this.getTombStat() : await this.getShareStat();
     const tokenPerSecond = await this.getTokenPerSecond(
@@ -301,7 +301,7 @@ export class TombFinance {
     } else if (depositTokenName.startsWith('2SHARE-FTM')) {
       return rewardPerSecond.mul(24000).div(59500);
     } else {
-      return rewardPerSecond.mul(5500).div(59500)
+      return rewardPerSecond.mul(5500).div(59500);
     }
   }
 
@@ -323,7 +323,7 @@ export class TombFinance {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true);
       } else if (tokenName === '2SHARE-FTM-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false);
-      } else if (tokenName === "2OMB-2SHARE-LP") {
+      } else if (tokenName === '2OMB-2SHARE-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true);
       } else if (tokenName === 'SHIBA') {
         tokenPrice = await this.getTokenPriceFromSpiritswap(token);
@@ -371,7 +371,7 @@ export class TombFinance {
   }
 
   // async getTotalValueLocked(): Promise<Number> {
-    
+
   //   let totalValue = 0;
   //   for (const bankInfo of Object.values(bankDefinitions)) {
   //     const pool = this.contracts[bankInfo.contract];
@@ -779,7 +779,12 @@ export class TombFinance {
     let overrides = {
       value: parseUnits(ftmAmount, 18),
     };
-    return await TaxOffice.addLiquidityETHTaxFree(tombAmount, tombAmount.mul(992).div(1000), parseUnits(ftmAmount, 18).mul(992).div(1000), overrides);
+    return await TaxOffice.addLiquidityETHTaxFree(
+      tombAmount,
+      tombAmount.mul(992).div(1000),
+      parseUnits(ftmAmount, 18).mul(992).div(1000),
+      overrides,
+    );
   }
 
   async quoteFromSpooky(tokenAmount: string, tokenName: string): Promise<string> {

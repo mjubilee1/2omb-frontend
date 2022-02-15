@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#FFF',
     'background-color': '#5f4aff22',
     // borderBottom: `1px solid ${theme.palette.divider}`,
-    'backdrop-filter': "blur(2px)",
+    'backdrop-filter': 'blur(2px)',
     padding: '0 10px',
     marginBottom: '3rem',
   },
@@ -106,8 +106,18 @@ const Nav = () => {
               </Link>
             </Typography>
             <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-              <a className={classes.link} target="_blank" href="https://github.com/2omb/audit/blob/main/2omb_Audit_Jan2022.pdf">Audited by</a>
-              <img width="125px" height="30px" src="https://spadetech.io/wp-content/uploads/elementor/thumbs/logo-2-p6mxojhv426tba93lpzfx3ft1m3dvq0k2hu2abrgi4.png"></img>
+              <a
+                className={classes.link}
+                target="_blank"
+                href="https://github.com/2omb/audit/blob/main/2omb_Audit_Jan2022.pdf"
+              >
+                Audited by
+              </a>
+              <img
+                width="125px"
+                height="30px"
+                src="https://spadetech.io/wp-content/uploads/elementor/thumbs/logo-2-p6mxojhv426tba93lpzfx3ft1m3dvq0k2hu2abrgi4.png"
+              ></img>
             </Typography>
             <Box mr={5}>
               <Link color="textPrimary" to="/" className={classes.link}>
