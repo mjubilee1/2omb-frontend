@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useWallet } from 'use-wallet';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Bank from '../Bank';
@@ -8,7 +8,6 @@ import { Box, Container, Typography, Grid } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 
 import UnlockWallet from '../../components/UnlockWallet';
-import CountDownTimer from '../../components/Countdown';
 import Page from '../../components/Page';
 import CemeteryCard from './CemeteryCard';
 import CemeteryImage from '../../assets/img/background.png';
@@ -33,7 +32,7 @@ const Cemetery = () => {
       <Page>
         <Route exact path={path}>
           <BackgroundImage />
-          {!!account ? (
+          {true ? (
             <Container maxWidth="lg">
               <Typography color="textPrimary" align="center" variant="h2" gutterBottom>
                 Farms
@@ -51,31 +50,12 @@ const Cemetery = () => {
                     {activeBanks
                       .filter((bank) => bank.sectionInUI === 2)
                       .map((bank) => (
-                        <React.Fragment key={bank.name}>
+                        <Fragment key={bank.name}>
                           <CemeteryCard bank={bank} />
-                        </React.Fragment>
+                        </Fragment>
                       ))}
                   </Grid>
                 </div>
-
-                {/* <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
-                  <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
-                    Earn 2OMB by staking 2OMB-WFTM
-                  </Typography>
-                  <Alert variant="filled" severity="warning">
-                    All below pools have ended. Please unstake and collect your rewards.
-                  </Alert>
-                  <Grid container spacing={3} style={{ marginTop: '20px' }}>
-                    {activeBanks
-                      .filter((bank) => bank.sectionInUI === 1)
-                      .map((bank) => (
-                        <React.Fragment key={bank.name}>
-                          <CemeteryCard bank={bank} />
-                        </React.Fragment>
-                      ))}
-                  </Grid>
-                </div> */}
-
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
                     Genesis Pools
@@ -83,16 +63,13 @@ const Cemetery = () => {
                   <Alert variant="filled" severity="warning">
                     Genesis Pools have ENDED. Please withdraw your funds.
                   </Alert>
-                  {/* <Typography color="textPrimary" variant="h4" gutterBottom>
-                    Decentralized Initial Supply Distribution
-                  </Typography> */}
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
                       .filter((bank) => bank.sectionInUI === 0)
                       .map((bank) => (
-                        <React.Fragment key={bank.name}>
+                        <Fragment key={bank.name}>
                           <CemeteryCard bank={bank} />
-                        </React.Fragment>
+                        </Fragment>
                       ))}
                   </Grid>
                 </div>
