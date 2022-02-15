@@ -134,16 +134,16 @@ const Nav = () => {
               <Link color="textPrimary" to="/regulations" className={classes.link}>
                 Regulations
               </Link> */}
-              <a target="_blank" href="https://3omb.finance/rebates" className={classes.link}>
-                3DAO
-              </a>
-              <a target="_blank" href="https://linktr.ee/2ombvaults" className={classes.link}>
-                Vaults
-              </a>
-              <a target="_blank" href="https://snapshot.org/#/forgiving.forg.eth" className={classes.link}>
-                Governance
-              </a>
-              {/* <a target="_blank" href="https://docs.2omb.finance/contracts/tokens" className={classes.link}>
+							<a target="_blank" href="https://3omb.finance/rebates" className={classes.link}>
+								3DAO
+							</a>
+							<a target="_blank" href="https://www.devilfinance.io" className={classes.link}>
+								Vaults
+							</a>
+							<a target="_blank" href="https://snapshot.org/#/forgiving.forg.eth" className={classes.link}>
+								Governance
+							</a>
+							{/* <a target="_blank" href="https://docs.2omb.finance/contracts/tokens" className={classes.link}>
                 Contracts
               </a> */}
               <a target="_blank" href="https://docs.2omb.finance" className={classes.link}>
