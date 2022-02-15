@@ -31,102 +31,102 @@ import useStakeToMasonry from '../../../hooks/useStakeToMasonry';
 import useWithdrawFromMasonry from '../../../hooks/useWithdrawFromMasonry';
 
 const Stake: React.FC = () => {
-  const tombFinance = useTombFinance();
-  const [approveStatus, approve] = useApprove(tombFinance.TSHARE, tombFinance.contracts.Masonry.address);
+	const tombFinance = useTombFinance();
+	const [approveStatus, approve] = useApprove(tombFinance.TSHARE, tombFinance.contracts.Masonry.address);
 
-  const tokenBalance = useTokenBalance(tombFinance.TSHARE);
-  const stakedBalance = useStakedBalanceOnMasonry();
-  const { from, to } = useUnstakeTimerMasonry();
+	const tokenBalance = useTokenBalance(tombFinance.TSHARE);
+	const stakedBalance = useStakedBalanceOnMasonry();
+	const { from, to } = useUnstakeTimerMasonry();
 
-  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars('TSHARE', tombFinance.TSHARE);
-  const tokenPriceInDollars = useMemo(
-    () =>
-      stakedTokenPriceInDollars
-        ? (Number(stakedTokenPriceInDollars) * Number(getDisplayBalance(stakedBalance))).toFixed(2).toString()
-        : null,
-    [stakedTokenPriceInDollars, stakedBalance],
-  );
-  // const isOldBoardroomMember = boardroomVersion !== 'latest';
+	const stakedTokenPriceInDollars = useStakedTokenPriceInDollars('TSHARE', tombFinance.TSHARE);
+	const tokenPriceInDollars = useMemo(
+		() =>
+			stakedTokenPriceInDollars
+				? (Number(stakedTokenPriceInDollars) * Number(getDisplayBalance(stakedBalance))).toFixed(2).toString()
+				: null,
+		[stakedTokenPriceInDollars, stakedBalance],
+	);
+	// const isOldBoardroomMember = boardroomVersion !== 'latest';
 
-  const { onStake } = useStakeToMasonry();
-  const { onWithdraw } = useWithdrawFromMasonry();
-  const canWithdrawFromMasonry = useWithdrawCheck();
+	const { onStake } = useStakeToMasonry();
+	const { onWithdraw } = useWithdrawFromMasonry();
+	const canWithdrawFromMasonry = useWithdrawCheck();
 
-  const [onPresentDeposit, onDismissDeposit] = useModal(
-    <DepositModal
-      max={tokenBalance}
-      onConfirm={(value) => {
-        onStake(value);
-        onDismissDeposit();
-      }}
-      tokenName={'2SHARES'}
-    />,
-  );
+	const [onPresentDeposit, onDismissDeposit] = useModal(
+		<DepositModal
+			max={tokenBalance}
+			onConfirm={(value) => {
+				onStake(value);
+				onDismissDeposit();
+			}}
+			tokenName={'2SHARES'}
+		/>,
+	);
 
-  const [onPresentWithdraw, onDismissWithdraw] = useModal(
-    <WithdrawModal
-      max={stakedBalance}
-      onConfirm={(value) => {
-        onWithdraw(value);
-        onDismissWithdraw();
-      }}
-      tokenName={'2SHARES'}
-    />,
-  );
+	const [onPresentWithdraw, onDismissWithdraw] = useModal(
+		<WithdrawModal
+			max={stakedBalance}
+			onConfirm={(value) => {
+				onWithdraw(value);
+				onDismissWithdraw();
+			}}
+			tokenName={'2SHARES'}
+		/>,
+	);
 
-  return (
-    <Box>
-      <Card>
-        <CardContent>
-          <StyledCardContentInner>
-            <StyledCardHeader>
-              <CardIcon>
-                <TokenSymbol symbol="TSHARE" />
-              </CardIcon>
-              <Value value={getDisplayBalance(stakedBalance)} />
-              <Label text={`≈ $${tokenPriceInDollars}`} />
-              <Label text={'2SHARES Staked'} />
-            </StyledCardHeader>
-            <StyledCardActions>
-              {approveStatus !== ApprovalState.APPROVED ? (
-                <Button
-                  disabled={approveStatus !== ApprovalState.NOT_APPROVED}
-                  variant="contained"
-                  color="primary"
-                  style={{ marginTop: '20px' }}
-                  onClick={approve}
-                >
-                  Approve 2SHARES
-                </Button>
-              ) : (
-                <>
-                  <IconButton disabled={!canWithdrawFromMasonry} onClick={onPresentWithdraw}>
-                    <RemoveIcon />
-                  </IconButton>
-                  <StyledActionSpacer />
-                  <IconButton onClick={onPresentDeposit}>
-                    <AddIcon />
-                  </IconButton>
-                </>
-              )}
-            </StyledCardActions>
-          </StyledCardContentInner>
-        </CardContent>
-      </Card>
-      <Box mt={2} style={{ color: '#FFF' }}>
-        {canWithdrawFromMasonry ? (
-          ''
-        ) : (
-          <Card>
-            <CardContent>
-              <Typography style={{ textAlign: 'center' }}>Withdraw possible in</Typography>
-              <ProgressCountdown hideBar={true} base={from} deadline={to} description="Withdraw available in" />
-            </CardContent>
-          </Card>
-        )}
-      </Box>
-    </Box>
-  );
+	return (
+		<Box>
+			<Card>
+				<CardContent>
+					<StyledCardContentInner>
+						<StyledCardHeader>
+							<CardIcon>
+								<TokenSymbol symbol="TSHARE" />
+							</CardIcon>
+							<Value value={getDisplayBalance(stakedBalance)} />
+							<Label text={`≈ $${tokenPriceInDollars}`} color="#fff" />
+							<Label text={'2SHARES Staked'} color="#fff" />
+						</StyledCardHeader>
+						<StyledCardActions>
+							{approveStatus !== ApprovalState.APPROVED ? (
+								<Button
+									disabled={approveStatus !== ApprovalState.NOT_APPROVED}
+									variant="contained"
+									color="primary"
+									style={{ marginTop: '20px' }}
+									onClick={approve}
+								>
+									Approve 2SHARES
+								</Button>
+							) : (
+								<>
+									<IconButton disabled={!canWithdrawFromMasonry} onClick={onPresentWithdraw}>
+										<RemoveIcon />
+									</IconButton>
+									<StyledActionSpacer />
+									<IconButton onClick={onPresentDeposit}>
+										<AddIcon />
+									</IconButton>
+								</>
+							)}
+						</StyledCardActions>
+					</StyledCardContentInner>
+				</CardContent>
+			</Card>
+			<Box mt={2} style={{ color: '#FFF' }}>
+				{canWithdrawFromMasonry ? (
+					''
+				) : (
+					<Card>
+						<CardContent>
+							<Typography style={{ textAlign: 'center' }}>Withdraw possible in</Typography>
+							<ProgressCountdown hideBar={true} base={from} deadline={to} description="Withdraw available in" />
+						</CardContent>
+					</Card>
+				)}
+			</Box>
+		</Box>
+	);
 };
 
 const StyledCardHeader = styled.div`
