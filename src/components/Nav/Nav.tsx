@@ -52,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   toolbarTitle: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     fontFamily: '"IBM Plex Mono", monospace',
     fontSize: '30px',
     flexGrow: 1,
