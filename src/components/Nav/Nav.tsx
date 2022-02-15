@@ -134,16 +134,16 @@ const Nav = () => {
               <Link color="textPrimary" to="/regulations" className={classes.link}>
                 Regulations
               </Link> */}
-							<a target="_blank" href="https://3omb.finance/rebates" className={classes.link}>
-								3DAO
-							</a>
-							<a target="_blank" href="https://www.devilfinance.io" className={classes.link}>
-								Vaults
-							</a>
-							<a target="_blank" href="https://snapshot.org/#/forgiving.forg.eth" className={classes.link}>
-								Governance
-							</a>
-							{/* <a target="_blank" href="https://docs.2omb.finance/contracts/tokens" className={classes.link}>
+              <a target="_blank" href="https://3omb.finance/rebates" className={classes.link}>
+                3DAO
+              </a>
+              <a target="_blank" href="https://www.devilfinance.io" className={classes.link}>
+                Vaults
+              </a>
+              <a target="_blank" href="https://snapshot.org/#/forgiving.forg.eth" className={classes.link}>
+                Governance
+              </a>
+              {/* <a target="_blank" href="https://docs.2omb.finance/contracts/tokens" className={classes.link}>
                 Contracts
               </a> */}
               <a target="_blank" href="https://docs.2omb.finance" className={classes.link}>
@@ -196,31 +196,31 @@ const Nav = () => {
                 {/* <ListItemLink primary="SBS" to="/sbs" />
                 <ListItemLink primary="Liquidity" to="/liquidity" />
                 <ListItemLink primary="Regulations" to="/regulations" /> */}
-								<ListItem button component="a" href="https://3omb.finance/rebates">
-									<ListItemText>3DAO</ListItemText>
-								</ListItem>
-								<ListItem button component="a" href="https://www.devilfinance.io">
-									<ListItemText>VAULTS</ListItemText>
-								</ListItem>
-								<ListItem button component="a" href="https://snapshot.org/#/forgiving.forg.eth">
-									<ListItemText>GOVERNANCE</ListItemText>
-								</ListItem>
-								<ListItem button component="a" href="https://docs.2omb.finance">
-									<ListItemText>DOCS</ListItemText>
-								</ListItem>
-								<ListItem button component="a" href="https://3omb.finance/">
-									<ListItemText>3OMB</ListItemText>
-								</ListItem>
-								<ListItem style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-									<AccountButton text="Connect" />
-								</ListItem>
-							</List>
-						</Drawer>
-					</>
-				)}
-			</Toolbar>
-		</AppBar>
-	);
+                <ListItem button component="a" href="https://3omb.finance/rebates">
+                  <ListItemText>3DAO</ListItemText>
+                </ListItem>
+                <ListItem button component="a" href="https://www.devilfinance.io">
+                  <ListItemText>VAULTS</ListItemText>
+                </ListItem>
+                <ListItem button component="a" href="https://snapshot.org/#/forgiving.forg.eth">
+                  <ListItemText>GOVERNANCE</ListItemText>
+                </ListItem>
+                <ListItem button component="a" href="https://docs.2omb.finance">
+                  <ListItemText>DOCS</ListItemText>
+                </ListItem>
+                <ListItem button component="a" href="https://3omb.finance/">
+                  <ListItemText>3OMB</ListItemText>
+                </ListItem>
+                <ListItem style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <AccountButton text="Connect" onOpen={handleDrawerClose} />
+                </ListItem>
+              </List>
+            </Drawer>
+          </>
+        )}
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default Nav;
