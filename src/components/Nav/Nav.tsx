@@ -57,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: '"Gilroy"',
 		fontSize: '30px',
 		flexGrow: 1,
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	link: {
 		textTransform: 'uppercase',
