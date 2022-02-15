@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   toolbarTitle: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     fontFamily: '"Gilroy"',
     fontSize: '30px',
     flexGrow: 1,
@@ -92,7 +95,7 @@ const Nav = () => {
   };
 
   return (
-    <AppBar position="sticky" elevation={0} className={classes.appBar}>
+    <AppBar position="static" elevation={0} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         {matches ? (
           <>
@@ -103,7 +106,7 @@ const Nav = () => {
               </Link>
             </Typography>
             <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-              <a className={ classes.link } target="_blank" href="https://github.com/2omb/audit/blob/main/2omb_Audit_Jan2022.pdf">Audited by</a>
+              <a className={classes.link} target="_blank" href="https://github.com/2omb/audit/blob/main/2omb_Audit_Jan2022.pdf">Audited by</a>
               <img width="125px" height="30px" src="https://spadetech.io/wp-content/uploads/elementor/thumbs/logo-2-p6mxojhv426tba93lpzfx3ft1m3dvq0k2hu2abrgi4.png"></img>
             </Typography>
             <Box mr={5}>

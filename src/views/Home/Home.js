@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import Page from '../../components/Page';
 import HomeImage from '../../assets/img/background.png';
-import CashImage from '../../assets/img/t_2OMB-01.png';
+import CashImage from '../../assets/img/t_2OMB-02.png';
+import devilLogo from '../../assets/img/devil-logo.png'
 import Image from 'material-ui-image';
 import styled from 'styled-components';
 import { Alert } from '@material-ui/lab';
@@ -139,27 +140,28 @@ const Home = () => {
       <BackgroundImage />
       <Grid container spacing={3}>
         {/* Logo */}
-        <Grid container item xs={12} sm={4} justify="center">
+        <Grid container item xs={12} sm={3} justify="center">
           {/* <Paper>xs=6 sm=3</Paper> */}
-          <Image color="none" style={{ width: "164px", height: "164px", objectFit: "contain", paddingTop: '100px' }} src={CashImage} />
+		  <Image color="none" style={{ width: "235px", height: "235px", objectFit: "contain", paddingTop: '0px' }} src={CashImage} />
         </Grid>
         {/* Explanation text */}
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} sm={6}>
           <Paper>
             <Box p={4}>
               <h2>Welcome to 2omb Finance!</h2>
               <p>Pegged to the price of 1 FTM via seigniorage.</p>
               <p>
-              <StyledLink href="/farms">Stake</StyledLink> your 2OMB-FTM LP tokens to earn 2SHARE seigniorage rewards.
+							  <StyledLink href="/farms" style={{ color: '#05147c' }} >Stake</StyledLink> your 2OMB-FTM LP tokens to earn 2SHARE seigniorage rewards.
               </p>
-              <p>To maximize profits, stake your harvested 2SHAREs in the <StyledLink href="/boardroom">Boardroom</StyledLink> to earn more 2OMB!</p>
+              <p>To maximize profits, stake your harvested 2SHAREs in the <StyledLink href="/boardroom" style={{ color: '#05147c' }} >Boardroom</StyledLink> to earn more 2OMB!</p>
             </Box>
           </Paper>
-
-
-
         </Grid>
-
+				<Grid container item xs={12} sm={3} justify="center">
+					<a target="_blank" href="https://www.devilfinance.io" className='devilLogo' style={{ width: '81%', height: '100%', objectFit: "contain", paddingTop: '0px' }}>
+						<Image color="none"  src={devilLogo} />
+					</a>
+				</Grid>
         <Grid container justify="center">
             <Box mt={3} style={{ width: '1000px' }}>
             <Alert variant="filled" severity="warning">
@@ -193,11 +195,11 @@ const Home = () => {
                 Farms
               </Button>
               <Button
-                color="primary"
+                color="contained"
                 target="_blank"
                 href={buyTombAddress}
                 variant="contained"
-                style={{ marginRight: '25px' }}
+                style={{ marginRight: '10px' }}
                 className={classes.button}
               >
                 Buy 2OMB
@@ -205,13 +207,13 @@ const Home = () => {
               {/* <Button variant="contained" target="_blank" href={buyTShareAddress} className={classes.button}>
                 Buy 2SHARE
               </Button> */}
-              <Button color="primary" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca" variant="contained" style={{ marginRight: '25px' }}>
+              <Button color="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca" variant="contained" style={{ marginRight: '10px' }}>
                 Buy 2SHARES
               </Button>
-              <Button color="primary" target="_blank" href="https://dexscreener.com/fantom/0xbdc7dfb7b88183e87f003ca6b5a2f81202343478" variant="contained" style={{ marginRight: '25px' }}>
+              <Button color="contained" target="_blank" href="https://dexscreener.com/fantom/0xbdc7dfb7b88183e87f003ca6b5a2f81202343478" variant="contained" style={{ marginRight: '10px' }}>
                 2OMB Chart
               </Button>
-              <Button color="primary" target="_blank" href="https://dexscreener.com/fantom/0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca" variant="contained" style={{ marginRight: '25px' }}>
+              <Button color="contained" target="_blank" href="https://dexscreener.com/fantom/0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca" variant="contained" style={{ marginRight: '10px' }}>
                 2SHARES Chart
               </Button>
             </CardContent>

@@ -19,91 +19,91 @@ import useApprove, { ApprovalState } from '../../../hooks/useApprove';
 import useCatchError from '../../../hooks/useCatchError';
 
 interface ExchangeCardProps {
-  action: string;
-  fromToken: ERC20;
-  fromTokenName: string;
-  toToken: ERC20;
-  toTokenName: string;
-  priceDesc: string;
-  onExchange: (amount: string) => void;
-  disabled?: boolean;
-  disabledDescription?: string;
+	action: string;
+	fromToken: ERC20;
+	fromTokenName: string;
+	toToken: ERC20;
+	toTokenName: string;
+	priceDesc: string;
+	onExchange: (amount: string) => void;
+	disabled?: boolean;
+	disabledDescription?: string;
 }
 
 const ExchangeCard: React.FC<ExchangeCardProps> = ({
-  action,
-  fromToken,
-  fromTokenName,
-  toToken,
-  toTokenName,
-  priceDesc,
-  onExchange,
-  disabled = false,
-  disabledDescription,
+	action,
+	fromToken,
+	fromTokenName,
+	toToken,
+	toTokenName,
+	priceDesc,
+	onExchange,
+	disabled = false,
+	disabledDescription,
 }) => {
-  const catchError = useCatchError();
-  const {
-    contracts: { Treasury },
-  } = useTombFinance();
-  const [approveStatus, approve] = useApprove(fromToken, Treasury.address);
+	const catchError = useCatchError();
+	const {
+		contracts: { Treasury },
+	} = useTombFinance();
+	const [approveStatus, approve] = useApprove(fromToken, Treasury.address);
 
-  const balance = useTokenBalance(fromToken);
-  const [onPresent, onDismiss] = useModal(
-    <ExchangeModal
-      title={action}
-      description={priceDesc}
-      max={balance}
-      onConfirm={(value) => {
-        onExchange(value);
-        onDismiss();
-      }}
-      action={action}
-      tokenName={fromTokenName}
-    />,
-  );
-  return (
-    <Card>
-      <CardContent>
-        <StyledCardContentInner>
-          <StyledCardTitle>{`${action} ${toTokenName}`}</StyledCardTitle>
-          <StyledExchanger>
-            <StyledToken>
-              <StyledCardIcon>
-                <TokenSymbol symbol={fromToken.symbol} size={54} />
-              </StyledCardIcon>
-              <Label text={fromTokenName} variant="normal" />
-            </StyledToken>
-            <StyledExchangeArrow>
-              <FontAwesomeIcon icon={faArrowRight} />
-            </StyledExchangeArrow>
-            <StyledToken>
-              <StyledCardIcon>
-                <TokenSymbol symbol={toToken.symbol} size={54} />
-              </StyledCardIcon>
-              <Label text={toTokenName} variant="normal" />
-            </StyledToken>
-          </StyledExchanger>
-          <StyledDesc>{priceDesc}</StyledDesc>
-          <StyledCardActions>
-            {approveStatus !== ApprovalState.APPROVED && !disabled ? (
-              <Button
-                color="primary"
-                variant="contained"
-                disabled={approveStatus === ApprovalState.PENDING || approveStatus === ApprovalState.UNKNOWN}
-                onClick={() => catchError(approve(), `Unable to approve ${fromTokenName}`)}
-              >
-                {`Approve ${fromTokenName}`}
-              </Button>
-            ) : (
-              <Button color="primary" variant="contained" onClick={onPresent} disabled={disabled}>
-                {disabledDescription || action}
-              </Button>
-            )}
-          </StyledCardActions>
-        </StyledCardContentInner>
-      </CardContent>
-    </Card>
-  );
+	const balance = useTokenBalance(fromToken);
+	const [onPresent, onDismiss] = useModal(
+		<ExchangeModal
+			title={action}
+			description={priceDesc}
+			max={balance}
+			onConfirm={(value) => {
+				onExchange(value);
+				onDismiss();
+			}}
+			action={action}
+			tokenName={fromTokenName}
+		/>,
+	);
+	return (
+		<Card>
+			<CardContent>
+				<StyledCardContentInner>
+					<StyledCardTitle>{`${action} ${toTokenName}`}</StyledCardTitle>
+					<StyledExchanger>
+						<StyledToken>
+							<StyledCardIcon style={{ background: 'transparent' }}>
+								<TokenSymbol symbol={fromToken.symbol} size={54} />
+							</StyledCardIcon>
+							<Label text={fromTokenName} variant="normal" color='white' />
+						</StyledToken>
+						<StyledExchangeArrow>
+							<FontAwesomeIcon icon={faArrowRight} />
+						</StyledExchangeArrow>
+						<StyledToken>
+							<StyledCardIcon style={{ background: 'transparent' }}>
+								<TokenSymbol symbol={toToken.symbol} size={54} />
+							</StyledCardIcon>
+							<Label text={toTokenName} variant="normal" color='white' />
+						</StyledToken>
+					</StyledExchanger>
+					<StyledDesc>{priceDesc}</StyledDesc>
+					<StyledCardActions>
+						{approveStatus !== ApprovalState.APPROVED && !disabled ? (
+							<Button
+								color="primary"
+								variant="contained"
+								disabled={approveStatus === ApprovalState.PENDING || approveStatus === ApprovalState.UNKNOWN}
+								onClick={() => catchError(approve(), `Unable to approve ${fromTokenName}`)}
+							>
+								{`Approve ${fromTokenName}`}
+							</Button>
+						) : (
+							<Button color="primary" variant="contained" onClick={onPresent} disabled={disabled}>
+								{disabledDescription || action}
+							</Button>
+						)}
+					</StyledCardActions>
+				</StyledCardContentInner>
+			</CardContent>
+		</Card>
+	);
 };
 
 const StyledCardTitle = styled.div`
